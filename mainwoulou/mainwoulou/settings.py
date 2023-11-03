@@ -149,7 +149,7 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
+#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
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS: True
 CORS_ALLOW_METHODS = (
