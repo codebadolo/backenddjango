@@ -1,6 +1,14 @@
 from django.db import models
 
 # Create your models here.
+class  Categories(models.Model):
+    CHOIX =( 
+    ("Homme", "Homme"), 
+    ("femme", "femme"), 
+    ("enfant", "enfant"), 
+    
+    ) 
+    nom_category = models.ChoiceField(choices = CHOIX) 
 
 class Article(models.Model):
     id_article = models.CharField(max_length=30)
@@ -11,13 +19,17 @@ class Article(models.Model):
     etat_article = models.CharField(max_length=15 )
     date_publication= models.DateField()
     
-
+    
     # et autre champs  a ajouter  au cas ou le besion  ce fait sentire  
     def __str__(self):
         return self.titre_article   
     class Meta:
+        ordering = ("-created",)
         verbose_name  =  'article'
         verbose_name_plural = 'articles'
+
+
+
 
 
 

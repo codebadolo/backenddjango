@@ -58,6 +58,12 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     
 ]
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 ROOT_URLCONF = 'mainwoulou.urls'
 
@@ -125,6 +131,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     )
   
 }
@@ -149,9 +156,10 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-#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
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS: True
+
 CORS_ALLOW_METHODS = (
     "DELETE",
     "GET",

@@ -24,8 +24,7 @@ from django.urls import re_path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('apimarchandises/', include('marchandises.urls')),
-    path('utilisateur/', include('users.urls')),
+     path('utilisateur/', include('users.urls')),
      
 
 ]
-
