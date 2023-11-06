@@ -1,0 +1,19 @@
+from django.contrib import admin
+
+# Register your models here.
+
+
+from .models import Product
+
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+
+    search_fields = ("name",)
+
+    list_display = (
+        "name",
+        "category",
+    )
+    list_filter = (("category", admin.RelatedOnlyFieldListFilter),)
+
