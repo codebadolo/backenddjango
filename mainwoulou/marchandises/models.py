@@ -2,19 +2,20 @@ from django.db import models
 
 # Create your models here.
 class  Categories(models.Model):
+   
     CHOIX =( 
     ("Homme", "Homme"), 
     ("femme", "femme"), 
-    ("enfant", "enfant"), 
+    ("enfant", "enfant")
     
     ) 
-    nom_category = models.ChoiceField(choices = CHOIX) 
+    nom_category = models.CharField(max_length=11, choices=CHOIX, verbose_name='Sexe')
 
 class Article(models.Model):
-    id_article = models.CharField(max_length=30)
+
     titre_article  = models.CharField(max_length=30)
     description_article = models.CharField(max_length=250 )
-    categorie_article = models.CharField(max_length=15)
+    categorie_article = models.ForeignKey(Categories , on_delete=models.CASCADE)
     prix_article = models.CharField( max_length= 10 )
     etat_article = models.CharField(max_length=15 )
     date_publication= models.DateField()
@@ -24,7 +25,7 @@ class Article(models.Model):
     def __str__(self):
         return self.titre_article   
     class Meta:
-        ordering = ("-created",)
+        
         verbose_name  =  'article'
         verbose_name_plural = 'articles'
 
