@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+     'django.contrib.sites',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -52,7 +53,7 @@ INSTALLED_APPS = [
         'rest_auth',
         'allauth',
         
-        'django.contrib.sites',
+       
     
         'rest_auth.registration',
     
@@ -181,3 +182,4 @@ CORS_ALLOW_METHODS = (
         "PUT",
     )
 
+SITE_ID = 1
