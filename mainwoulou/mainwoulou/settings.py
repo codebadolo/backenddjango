@@ -31,25 +31,30 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'marchandises',
-    'users',
-     'django_filters',
-    "corsheaders",
-      'rest_framework.authtoken',
-      'rest_auth',
-      'rest_framework_simplejwt',
-      'product',
-       'mptt',
-    
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'rest_framework',
+        'marchandises',
+        'users',
+        'django_filters',
+        "corsheaders",
+        
+        'rest_framework_simplejwt',
+        'product',
+        'mptt',
 
-    # social authentication  
+        'rest_framework.authtoken',
+        'allauth.account',
+        'rest_auth',
+        'allauth',
+        
+        'django.contrib.sites',
+    
+        'rest_auth.registration',
     
     ]
 
@@ -62,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "corsheaders.middleware.CorsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
     
 ]
 AUTHENTICATION_BACKENDS = (
@@ -167,11 +173,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS: True
 
 CORS_ALLOW_METHODS = (
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-)
+        "DELETE",
+        "GET",
+        "OPTIONS",
+        "PATCH",
+        "POST",
+        "PUT",
+    )
 
