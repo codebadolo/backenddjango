@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'marchandises',
     'users',
+     'django_filters',
     "corsheaders",
       'rest_framework.authtoken',
       'rest_auth',
       'rest_framework_simplejwt',
+      'product',
 
     ]
 
