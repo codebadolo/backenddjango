@@ -46,6 +46,7 @@ INSTALLED_APPS = [
       'rest_auth',
       'rest_framework_simplejwt',
       'product',
+       'mptt',
 
     ]
 
