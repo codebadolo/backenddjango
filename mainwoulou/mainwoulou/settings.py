@@ -43,7 +43,7 @@ INSTALLED_APPS = [
         'users',
         'django_filters',
         "corsheaders",
-        
+     
         'rest_framework_simplejwt',
         'product',
         'mptt',
@@ -52,10 +52,10 @@ INSTALLED_APPS = [
         'allauth.account',
         'rest_auth',
         'allauth',
-        
-       
-    
         'rest_auth.registration',
+        'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+ 
     
     ]
 
@@ -68,11 +68,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "corsheaders.middleware.CorsMiddleware",
-    "allauth.account.middleware.AccountMiddleware",
+    
+    
     
 ]
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.google.GoogleOAuth2',
+   
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
@@ -90,7 +91,9 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                #'social.apps.django_app.context_processors.backends',
                 'django.contrib.messages.context_processors.messages',
+                #'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -183,3 +186,4 @@ CORS_ALLOW_METHODS = (
     )
 
 SITE_ID = 1
+REST_USE_JWT = True

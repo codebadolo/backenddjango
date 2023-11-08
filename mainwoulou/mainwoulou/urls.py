@@ -16,18 +16,22 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path  , include  
-
-
+from django.urls import path  , include , re_path
+from allauth.account.views import ConfirmEmailView
+from django.urls import   re_path as url 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('rest-auth/', include('rest_auth.urls')  , name='rest_auth'),
-    path('rest-auth/registration/', include('rest_auth.registration.urls')),
-    path('apimarchandises/', include('marchandises.urls')),
     path("product/", include("product.urls")),
     path('utilisateur/', include('users.urls')),
+    path('social/', include('social.urls')),
+    re_path(r'^rest-auth/', include('rest_auth.urls')  , name='rest_auth'),
+    re_path(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('apimarchandises/', include('marchandises.urls')),
+     #re_path(r'^account-confirm-email/<str:key>/', ConfirmEmailView.as_view(), name='account_confirm_email'),
+    
+
      
 
 ]

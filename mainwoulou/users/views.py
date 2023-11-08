@@ -20,7 +20,7 @@ class RegisterView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     permission_classes = (IsAuthenticated,)
     serializer_class = RegisterSerializer
-
+    
     def create(self, request, *args, **kwargs):
         # Custom create method to handle user registration
         serializer = RegisterSerializer(data=request.data)
@@ -28,7 +28,7 @@ class RegisterView(viewsets.ModelViewSet):
             user = serializer.save()
             return Response({"user": serializer.data, "message": "User registered successfully"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+    
     def update(self, request, *args, **kwargs):
         # Custom update method to handle user profile updates
         instance = self.get_object()
@@ -37,6 +37,7 @@ class RegisterView(viewsets.ModelViewSet):
             serializer.save()
             return Response({"user": serializer.data, "message": "User profile updated successfully"})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 
